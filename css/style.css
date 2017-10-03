@@ -1,11 +1,211 @@
-body{
-	margin: 0;
-	background-color: #111;
-	font-family: sans-serif;
+@charset "UTF-8";
+
+html,body{
+	width: 100%;
+	height: 100%;
 }
-h1{
+body{
+    font-family: Verdana, Arial;
+	font-size: 13px;
+	line-height: 1;
+	color: #666666;
+}
+header{
+	display: flex;
+	flex-direction: column;
+}
+.header-top{
+	display: flex;
+	padding: 30px 0;
+	justify-content: center;
+	
+}
+.container{
+	width: 1170px;
+	display: flex;
+	justify-content: space-between;
+}
+
+/*--MENU--*/
+.menu__list{
+	display: inline-flex;
+	flex-direction: row;
+}
+.menu li{
+	padding: 5px 15px;
+}
+.menu a{
+	font-size: 14px;
+	font-family: 'MontserratRegular';
+	color: rgb(52, 62, 92);
+	text-decoration: none;
+}
+
+/*--CART--*/
+.cart{
+	padding: 5px 0 0;
+}
+.cart__text{
+	background: transparent url('../img/shopping_cart.svg') no-repeat scroll 0 50%;
+	font-size: 11px;
+	font-family: "MontserratRegular";
+	color: rgb(52, 62, 92);
+	text-transform: uppercase;
+	line-height: 1.2;
+	padding: 10px 0 10px 25px;
+	letter-spacing: 1px;
+}
+.cart__quantity{
+	font-size: 11px;
+	font-family: "MontserratRegular";
+	color: rgb(52, 62, 92);
+	text-transform: uppercase;
+	line-height: 1.2;
+	background-color: #e3e8f0;
+	padding: 5px 9px;
+	border-radius: 12px;
+	text-align: center;
+}
+
+/*--CART & SIGNIN--*/
+
+.cart_signin{
+	display: inline-flex;
+}
+
+/*--SIGN IN--*/
+
+.signin{
+	margin: 5px 0 0 30px;
+}
+.signin__link{
+	font-size: 11px;
+	font-family: "MontserratRegular";
+	color: rgb(52, 62, 92);
+	text-transform: uppercase;
+	line-height: 1.2;
+	text-decoration: none;
+	border: 2px solid #e3e8f0;
+	border-radius: 17px;
+	padding: 7px 16px;
+	letter-spacing: 1px;
+}
+
+/*--BOTTOM HEADER--*/
+
+.header-bottom{
+	display: flex;
+	border-top: 1px solid #f0f2f7;
+	border-bottom: 1px solid #f0f2f7;
+	justify-content: center;
+}
+
+/*--SUBMENU--*/
+
+.submenu{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.submenu__list{
+	display: inline-flex;
+	flex-direction: row;
+}
+.submenu__list li{
+	padding: 25px 30px 25px 0;
+}
+.support_link,
+.submenu__list a{
+	font-family: 'MontserratRegular';
+	text-decoration: none;
+	font-size: 11px;
+	color: rgb(185, 190, 209);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.support_link a:hover,
+.submenu__list a:hover,
+.submenu__list li.active a{
+	color: #343e5c;
+}
+.submenu__list__item-right{
+	align-self: right;
+}
+
+/*--SUPPORT & SEARCH--*/
+
+.b_support_search{
+	display: inline-flex;
+}
+.support_link{
+	padding: 25px 30px;
+}
+.support_link,
+.search{
+	border-right: 1px solid #f0f2f7;
+}
+.search .search__text{
+	border: 0 none;
+	background: transparent url('../img/search_icon.svg') no-repeat scroll 5px 50%;
+	font-size: 14px;
+	font-family: 'MontserratRegular';
+	color: rgb(161, 168, 189);
+	line-height: 1.7;
+	text-align: left;
+	padding: 20px 30px;
+	margin-left: 20px;
+}
+
+/*--MAIN CONTENT--*/
+.main{
+	display: flex;
+	background-color: #1c1e23;
+	/*background: #1c1e23 url('../img/mainbg_phone.png') no-repeat scroll 80% 0;*/
+	justify-content: center;
+}
+.main__content{
+	display: flex;
+	justify-content: space-between;
+}
+.main__content__iphone-txt{
+	padding: 100px 115px 100px 100px;
+	width: 470px;
+}
+.main__content__title{
+	font-size: 42px;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	line-height: 1.2;
+}
+.main__content__text{
+	font-size: 18px;
+	font-family: 'Crimson Text', Arial, Verdana;
+	color: #fff;
+	line-height: 1.5;
+	margin: 25px 0 0;
+}
+.main__content__button{
+	margin: 65px 0 0;
+}
+.main__content__button__btn{
+	font-size: 11px;
+	font-family: "MontserratRegular";
 	color: #fff;
 	text-transform: uppercase;
-	padding-top: 30%;
+	line-height: 1.2;
 	text-align: center;
+	background-color: #2754eb;
+	border-radius: 25px;
+	padding: 15px 16px;
+	text-decoration: none;
+	width: 135px;
+	display: inline-block;
+	letter-spacing: 1px;
+}
+.main__content__iphone-img{
+	position: relative;
+	overflow: hidden;
+}
+.main__content__iphone-img__img{
+	margin-top: -67px;
 }
