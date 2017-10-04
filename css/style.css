@@ -167,27 +167,27 @@ header{
 	display: flex;
 	justify-content: space-between;
 }
-.main__content__iphone-txt{
-	padding: 100px 115px 100px 100px;
+.main__iphone-txt{
+	padding: 100px 115px 87px 100px;
 	width: 470px;
 }
-.main__content__title{
+.main__title{
 	font-size: 42px;
 	font-family: 'Montserrat', sans-serif;
 	color: #fff;
 	line-height: 1.2;
 }
-.main__content__text{
+.main__text{
 	font-size: 18px;
 	font-family: 'Crimson Text', Arial, Verdana;
 	color: #fff;
 	line-height: 1.5;
 	margin: 25px 0 0;
 }
-.main__content__button{
+.main__button{
 	margin: 65px 0 0;
 }
-.main__content__button__btn{
+.main__button-buy{
 	font-size: 11px;
 	font-family: "MontserratRegular";
 	color: #fff;
@@ -202,10 +202,10 @@ header{
 	display: inline-block;
 	letter-spacing: 1px;
 }
-.main__content__iphone-img{
+.main__iphone-img{
 	position: relative;
 	overflow: hidden;
 }
-.main__content__iphone-img__img{
+.iphone-img__img{
 	margin-top: -67px;
 }
