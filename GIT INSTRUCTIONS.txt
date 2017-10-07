@@ -1,0 +1,8 @@
+cd olecium.github.io
+git status
+git add -A  //add all
+git status
+git commit -m "your commit message here"  //commit locally
+git push  //commit all from local to online
+
+git pull // get everything from online repository
