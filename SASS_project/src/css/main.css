@@ -72,6 +72,7 @@ a img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #fff;
 }
 
 .logo {
@@ -151,6 +152,7 @@ a img {
 .main-screen {
   width: 100%;
   background: transparent url("../img/main_bg.jpg") no-repeat scroll center 0;
+  background-size: cover;
   padding: 230px 0 140px;
 }
 

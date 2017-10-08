@@ -18,6 +18,7 @@ $padding-top: 60px;
 .header-content{
 	@include flex-row;
 	justify-content: space-between;
+	background-color: #fff;
 }
 .logo{
 	@include header_padding;
@@ -85,6 +86,7 @@ $padding-top: 60px;
 .main-screen{
 	width: 100%;
 	background:transparent url('../img/main_bg.jpg') no-repeat scroll center 0;
+	background-size: cover;
 	padding: 230px 0 140px;
 	.container{		
 		display: flex;
