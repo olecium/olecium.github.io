@@ -1,0 +1,69 @@
+body{
+	background-color: #000;
+}
+@mixin trs($property: all, $time: 0.5s){
+	-webkit-transition: $property $time;
+	-o-transition: $property $time;
+	transition: $property $time;
+} 
+.gal{
+	display: flex;
+	flex-wrap: wrap; 
+	width: 850px;
+	margin: 50px auto;
+	.gal__item{
+		@include trs(all, 1s);
+		width: 380px;
+		margin: 10px;
+		position: relative;
+		img{
+			width: 100%;
+			height: auto;
+			opacity: .8;
+		}
+	}
+	.wrap-item{
+		position:absolute;
+		top: 15%;
+		left: 10%;
+		width: 80%;
+		height: 70%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		//background-color: rgba(255,122,122,4);
+		@include trs(border, .2s);
+		//@include trs(background-color, 2s);
+
+		span{
+			padding: 10px;
+			box-sizing: border-box;
+			font-family: sans-serif;
+			font-size: 12px;
+			font-weight: 800;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-style: none;
+			color: #fff;
+		}
+		&::before {
+		    content: '';
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		    transition-duration: 0.3s;
+		    transition-property: top, right, bottom, left;
+		}
+		&:hover::before{	
+		    border: #fff solid 2px;		
+			top: -8px;
+		    right: -8px;
+		    bottom: -8px;
+		    left: -8px;
+		}
+			
+
+	}
+}
