@@ -1,5 +1,6 @@
 body{
 	background-color: #000;
+	position: relative;
 }
 @mixin trs($property: all, $time: 0.5s){
 	-webkit-transition: $property $time;
@@ -62,8 +63,57 @@ body{
 		    right: -8px;
 		    bottom: -8px;
 		    left: -8px;
-		}
-			
+		}		
 
+	}
+}
+.overlap{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #000;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: .8;
+}
+.modalw{
+	display: none;
+	position: absolute;
+	top: 20%;
+	left: 25.5%;
+	width: 750px;
+	height: 500px;
+	background-color: #fff;
+	z-index: 1;
+	a{
+		text-decoration: none;
+		cursor: pointer;
+		color: #000;
+		position: absolute;
+		right: -20px;
+		top: -20px;
+		width: 35px;
+		height: 30px;
+		background-color: #fff;
+		border-radius: 30px;
+		font-size: 30px;
+		text-align: center;
+		padding: 3px 1px;
+		z-index: 2;
+	}	
+	.img_wrap{
+		position: relative;
+		width: 100%;
+	}
+	img{
+		width: 100%;
+	}
+}
+#openw:target{
+	display: block;
+	+.modalw{		
+		display: block;
 	}
 }
