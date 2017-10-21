@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:title" content="jQuery accordeon and tabs" />
+		<meta property="og:description" content="" />
+		<meta property="og:url" content="" />
+		<meta property="og:image" content="img/preview.jpg" />
+		
+		<meta name="title" content="jQuery menu" />
+		<meta name="description" content="" />
+		<link rel="image_src" href="img/preview.jpg" />
+		<title>jQuery Accordeon &amp; Tabs</title>
+		
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<link rel="icon" href="img/favicom-16.png" sizes="16x16" type="image/png">
+		
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		
+		<div class="accordeon">
+			<div class="blk">
+				<div class="blk__title"><span>1 Сколько времени может занять быстрая уборка 3-х комнатной квартиры?</span></div>
+				<div class="blk__text">
+					<p>1 Быстрая уборка 3 комнатной квартиры, которая включает в себя мытье полов, протирку пыли и зеркал занимает около 3 часов. Но, конечно, многое зависит от степени загрязненности и заставленности комнат.</p>
+				</div>
+			</div>
+			<div class="blk">
+				<div class="blk__title"><span>2 Оксмокс взобравшись своих?</span></div>
+				<div class="blk__text">
+					<p>2 Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Оксмокс взобравшись своих, решила власти, возвращайся путь ведущими прямо буквенных маленькая реторический, всеми несколько послушавшись большой все рукопись? Вопрос от всех решила бросил агенство семантика напоивший все великий парадигматическая путь проектах, власти, текста ведущими алфавит пор своего маленький всеми имени свой.</p>
+				</div>
+			</div>
+			<div class="blk">
+				<div class="blk__title"><span>3 Далеко-далеко за словесными горами в стране? </span></div>
+				<div class="blk__text">
+					<p>3 Ипсум ее вопрос оксмокс алфавит коварных по всей, вопроса рыбными семантика своих дороге своих, предупредила послушавшись имени выйти они большой. Первую.</p>
+				</div>
+			</div>
+			<div class="blk">
+				<div class="blk__title"><span>4 Большой все рукопись?</span></div>
+				<div class="blk__text">
+					<p>4 Вопрос от всех решила бросил агенство семантика напоивший все великий парадигматическая путь проектах, власти, текста ведущими алфавит пор своего маленький всеми имени свой.</p>
+				</div>
+			</div>
+			<div class="blk">
+				<div class="blk__title"><span>5 Ведущими прямо буквенных?</span></div>
+				<div class="blk__text">
+					<p>5 Оксмокс взобравшись своих, решила власти, возвращайся путь ведущими прямо буквенных маленькая реторический, всеми несколько послушавшись большой все рукопись? </p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="tabs">
+			<div class="tab_titles">
+				<a class="tab__title" data-target="tab1" href="#">TAB 1</a>
+				<a class="tab__title" data-target="tab2" href="#">TAB 2</a>
+				<a class="tab__title" data-target="tab3" href="#">TAB 3</a>
+			</div>
+			<div class="tab_contents">
+				<div class="tab__content tab1">Tab content 1</div>
+				<div class="tab__content tab2">Tab content 2</div>
+				<div class="tab__content tab3">Tab content 3</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				$('.tab__title').click(function(){
+					$target = $(this).attr('data-target');
+					$('.tab__content').hide();
+					$('.'+ $target).show();
+				});
+
+				$('.tab1').show();
+				$('.blk__title').click(function(){
+					$clickedBlk = $(this).parent();
+					$('.blk__text').hide();
+					$('.blk__text', $clickedBlk).show();
+				});
+
+			});
+		</script>
+	</body>
+</html>
