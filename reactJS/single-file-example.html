@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="tasks"></div>
+
+    <script type="text/babel">
+      class Task extends React.Component{
+
+        constructor(props){
+            super(props);
+            this.state = {editState: false, addState: false};
+            this.add = this.edit.bind(this);
+            this.edit = this.edit.bind(this);
+            this.save = this.save.bind(this);
+            this.remove = this.remove.bind(this);
+          }
+        add() {
+          this.setState({addState: true});
+        }
+        edit() {
+          this.setState({
+            editState: true
+          });
+        }
+        save() {
+          var value = this.textInput.value;
+          this.setState({
+            editState: false
+          });
+          this.props.update (this.textInput.value, this.props.index)
+        }
+        remove() {
+         this.props.remove(this.props.index);
+        }
+        rendNorm(){
+          return (
+            <div>
+              <p className="task_name">{this.props.children}</p>
+              <button className="btn edit" onClick={this.edit}>Edit</button>
+              <button className="btn remove" onClick={this.remove}>Remove</button>
+            </div>
+          );
+        }
+        rendEdit(){
+          return (
+            <div>
+              <textarea ref={(input) => { this.textInput = input; }} defaultValue={this.props.children}></textarea>
+              <button className="btn save" onClick={this.save}>Save</button>
+            </div>
+          );
+        }
+        rendAdd(){
+          return (
+            <div>
+              <textarea></textarea>
+              <button className="btn save" onClick={this.save}>Save</button>
+            </div>
+          );
+        }
+        render() {
+          if(this.state.editState){
+            return this.rendEdit();
+          } else if (this.state.addState){
+            return this.rendAdd();
+          } else {
+            return this.rendNorm();
+          }
+        }
+      }
+
+
+      class AllTasks extends React.Component{
+
+        constructor(props){
+          super(props);
+          this.state = {
+            tasks: [
+              'Go shopping',
+              'Nursery',
+              'Get orders'
+            ]
+          }
+          this.updateText = this.updateText.bind(this);
+          this.removeBlock = this.removeBlock.bind(this);
+          this.eachTask = this.eachTask.bind(this);
+          this.addTask = this.addTask.bind(this);
+        }
+
+        addTask(text){
+          var arr = this.state.tasks;
+          arr.push(text);
+          this.setState ({tasks:arr});
+        }
+
+        updateText(text, i){
+          var arr = this.state.tasks;
+          arr[i] = text;
+          this.setState ({tasks:arr});
+        }
+
+        removeBlock(i){
+          var arr = this.state.tasks;
+          arr.splice (i, 1);
+          this.setState ({tasks: arr});
+        }
+
+        eachTask (item, i) {              
+          return (
+            <Task key={i} index={i} update={this.updateText} remove={this.removeBlock}>
+              {item}
+            </Task>);
+        }
+
+        render() {
+          return(
+            <div className="field">
+              <button className="btn add" onClick={this.addTask.bind(null, 'task 2')}>Add+</button>
+              { this.state.tasks.map (this.eachTask) }
+            </div>            
+          );
+        }
+
+      }
+
+      var tasks = document.getElementById("tasks");
+
+      ReactDOM.render(
+        <AllTasks />,
+        tasks
+      );
+
+
+
+
+      /* class Check extends React.Component{
+     
+        constructor(props){
+          super(props);
+          this.state = {checked: true};
+          this.handleChange = this.handleChange.bind(this);
+        }
+
+        handleChange(){
+          this.setState({
+            checked: !this.state.checked
+          });
+        }     
+
+        render() {
+          var message;
+          if (this.state.checked) {
+            message = 'chosen';
+          } else{
+            message = 'not chosen';
+          }
+          return (
+            <div>
+              <input type="checkbox" onChange={this.handleChange} defaultChecked={this.state.checked}/>
+              <p>Checkbox {message}</p> 
+            </div>
+          );
+        }
+      }  */
+/*
+  class Block extends React.Component {
+      render() {
+        var num = 20;
+        return (
+          <div>
+            <h1>Hello {this.props.name},</h1>
+            <h3>Your number is {this.props.number}</h3>
+          </div>
+        );
+      }
+    }
+
+    var place = document.getElementById("tasks");
+
+      ReactDOM.render (
+        <div>
+          <Block number="1" name="Olesea" />
+          <Block number="2" name="Artiom" />
+          <Block number="3" name="Jacob" />
+        </div>,
+        place
+      );
+*/
+    </script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>A+ B Calculator</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        
+        class Buttons extends React.Component{
+            constructor(props){
+                super(props);
+                this.valId = [];
+                this.state = {result: 0};
+                this.handleClick = this.handleClick.bind(this);
+                this.handleChange = this.handleChange.bind(this);
+            }
+            handleChange(e){
+                var newState = {};
+                newState[e.target.id] = e.target.value;
+                this.setState(newState);
+
+                this.valId.push(e.target.id);   // saving changed input ids in array    
+            }
+
+            handleClick(e){
+                e.preventDefault();
+                var operRes = 0;
+                var  operand = '';
+                var val1 = this.state[this.valId[0]];   // getting state value of the first changed input
+                var val2 = this.state[this.valId[1]];   // getting state value of the second changed input
+                
+                switch(e.target.id){
+                    case 'add': operRes = parseInt(val1) + parseInt(val2); operand = '+'; break;
+                    case 'reduce': operRes = parseInt(val1) - parseInt(val2); operand = '-'; break;
+                    case 'multiply': operRes = parseInt(val1) * parseInt(val2); operand = '*'; break;
+                };
+                /*
+                switch(e.target.id){
+                    case 'add': operRes = parseInt(this.state.valueA) + parseInt(this.state.valueB); operand = '+'; break;
+                    case 'reduce': operRes = parseInt(this.state.valueA) - parseInt(this.state.valueB); operand = '-'; break;
+                    case 'multiply': operRes = parseInt(this.state.valueA) * parseInt(this.state.valueB); operand = '*'; break;
+                };
+                */
+
+                this.state.result = `${val1} ${operand} ${val2} = ${operRes}`;
+                this.setState({
+                    result: this.state.result
+                });
+            }
+
+            render(){ 
+                return(
+                    <div>
+                        <div>
+                            <input id="valueA" name="a" type="text" onChange={this.handleChange} defaultValue='0'/>
+                            <input id="valueB" name="b" type="text" onChange={this.handleChange} defaultValue='0'/>
+                        </div>
+                        <div>
+                            <button id="add" onClick={this.handleClick}>A+B</button>
+                            <button id="reduce" onClick={this.handleClick}>A-B</button>
+                            <button id="multiply" onClick={this.handleClick}>A*B</button>
+                        </div>
+                        <h3>Result: {this.state.result}</h3>
+                    </div>
+                );
+           }
+        }     
+
+        ReactDOM.render(
+            <Buttons />,
+        document.getElementById('root')
+        );
+
+    </script>
+</body>
+
+</html>

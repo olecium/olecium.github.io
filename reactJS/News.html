@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>News</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        var NEWS = [{
+          id: 1,
+          title: 'UK snow breaks the system',
+          author: 'Jane Lewis',
+          date: '2018-03-13',
+          text: 'Voluptate nulla ea consequat consectetur nulla veniam cillum veniam cillum tempor deserunt. Id ullamco ut dolore ipsum irure. Eu anim voluptate eiusmod ea sunt anim anim cillum cillum est aliqua deserunt pariatur. Sint amet non aliqua nisi aliqua ipsum eiusmod.'
+        },{
+          id: 2,
+          title: 'Lorem ipsum dolor',
+          author: 'Jane Lewis',
+          date: '2018-03-13',
+          text: 'Ju tem cillum tempor deserunt. Id ullamco ut dolore ipsum irure. Eu anim voluptate eiusmod ea sunt anim anim cillum cillum est aliqua deserunt pariatur. Sint amet non aliqua nisi aliqua ipsum eiusmod.'
+        },{
+          id: 3,
+          title: 'Sit amet dolor lorem ipsum',
+          author: 'Jane Lewis',
+          date: '2018-03-13',
+          text: 'Ju tem cillum tempor deserunt. Id ullamco ut dolore ipsum irure. Eu anim voluptate eiusmod ea sunt anim anim cillum cillum est aliqua deserunt pariatur. Sint amet non aliqua nisi aliqua ipsum eiusmod.'
+        },{
+          id: 4,
+          title: 'Say Hello to friends',
+          author: 'Jane Lewis',
+          date: '2018-03-13',
+          text: 'Ju tem cillum tempor deserunt. Id ullamco ut dolore ipsum irure. Eu anim voluptate eiusmod ea sunt anim anim cillum cillum est aliqua deserunt pariatur. Sint amet non aliqua nisi aliqua ipsum eiusmod.'
+        }];
+
+        class Article extends React.Component{
+          
+          render(){
+              return (
+                <div className="article">
+                  <div className="article_title">{this.props.title}</div>
+                  <div className="article_info">
+                    <div className="article_author">{this.props.author}</div>
+                    <div className="article_date">{this.props.date}</div>
+                  </div>
+                  <div className="article_text">{this.props.text}</div>
+                </div>
+              );
+          }
+        }
+        class News extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {name:'stranger'}; //initialising state
+            this.handleNameChange = this.handleNameChange.bind(this);
+          }
+
+          handleNameChange(e){
+            this.setState({
+                name: e.target.value
+            });
+
+          }
+          render() {
+            return (
+              <div>
+                <input type="text" onChange={this.handleNameChange} />
+                <h1>Hello, {this.state.name ? this.state.name : 'stranger'}</h1>
+                { NEWS.map((el) => <Article key={el.id}  title={el.title} author={el.author} date={el.date} text={el.text}/>) }
+              </div>
+            );
+          }
+        }
+
+      ReactDOM.render(
+        <div className="news-list">
+          <News/>
+        </div>,
+        document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>
