@@ -1,15 +1,16 @@
 class Search extends React.Component{
     constructor(props){
         super(props);
-        this.state = { search: '', displayedNotes: this.props.notes };
+        this.state = { search: '', displayedNotes: this.props.notes, value: '' };
         this.onSearch = this.onSearch.bind(this);
         this.onReset = this.onReset.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
+        this.onSearchReset = this.onSearchReset.bind(this);
     }
 
     onTextChange(e){
         var searchQuery = e.target.value;
-        this.setState({ search: searchQuery });
+        this.setState({ search: searchQuery, value: searchQuery  });
     }
 
     onSearch(){
@@ -20,19 +21,35 @@ class Search extends React.Component{
             return searchArrValue.indexOf(searchQuery) !== -1;
         });
 
-        this.setState({ displayedNotes: displayedNotes });
-        this.props.onNoteSearch(displayedNotes);
+        this.setState({ displayedNotes: displayedNotes, value: searchQuery });
+        let resetSearch = false;
+        this.props.onNoteSearch(displayedNotes, resetSearch);
     }
     onReset(){
         this.setState({ displayedNotes: this.props.notes });
-        this.props.onNoteSearch(this.props.notes);
+        let resetSearch = false;
+        resetSearch = this.onSearchReset();
+        this.props.onNoteSearch(this.props.notes, resetSearch);
+    }
+
+    componentDidMount() {
+        this.props.onRef(this);
+    }
+
+    componentWillUnmount() {
+        this.props.onRef(undefined);
+    }
+
+    onSearchReset(){
+        this.setState({ value: '' });
+        return true;
     }
 
     render(){ 
         return(
             <div className="search">
                 <h6>Look for notes</h6>
-                <input className="search-field" onChange={this.onTextChange} type="text" />
+                <input className="search-field" onChange={this.onTextChange} type="text" value={this.state.value} />
                 <button onClick={this.onSearch} className="search-button">Search</button>
                 <button onClick={this.onReset} className="reset-button">Show all notes</button>
             </div>
@@ -88,7 +105,6 @@ class Color extends React.Component{
 }
 
 
-
 class NoteEditor extends React.Component{
     constructor(props){
         super(props);
@@ -129,7 +145,6 @@ class NoteEditor extends React.Component{
 }
 
 
-
 class Note extends React.Component{
     render(){
         var style = { backgroundColor: this.props.color };
@@ -163,13 +178,17 @@ class NotesGrid extends React.Component{
             this.msnry.layout();
         }
     }
-    //this.props.onNoteSearch
 
     render(){
         var onNoteDelete = this.props.onNoteDelete;
+
+        const result = (this.props.notes.length > 0) 
+                        ? this.props.notes.map((note) => <Note key={note.id} onDelete={onNoteDelete.bind(null, note)} color={note.color}>{note.text}</Note>)
+                        :<h1>No notes found...</h1>;
+
         return(
             <div className="notes-grid" ref="grid">
-                {this.props.notes.map((note) => <Note key={note.id} onDelete={onNoteDelete.bind(null, note)} color={note.color}>{note.text}</Note> ) }
+                {result}
             </div>
         );
     }
@@ -182,13 +201,13 @@ class NoteApp extends React.Component{
 
         this.state = {
             notes: [],
-            searchedNotes: []
+            searchedNotes: [],
+            value: ''
         };
 
         this.handleNoteAdd = this.handleNoteAdd.bind(this);
         this.handleNoteDelete = this.handleNoteDelete.bind(this);
         this.handleNoteSearch = this.handleNoteSearch.bind(this);
-        //this._updateLocalStorage = this._updateLocalStorage.bind(this);
     }
 
     componentDidMount(){
@@ -204,29 +223,34 @@ class NoteApp extends React.Component{
 
     handleNoteDelete(note){
         var noteId = note.id;
+        var newSearchedNotes = this.state.searchedNotes.filter((note) => note.id !== noteId);
         var newNotes = this.state.notes.filter((note) => note.id !== noteId);
-        this.setState({ notes: newNotes, searchedNotes: newNotes });
+        this.setState({ notes: newNotes, searchedNotes: newSearchedNotes });
+        //this.child.onSearchReset();                 //reset search field
     }
 
     handleNoteAdd(newNote) {
         var newNotes = this.state.notes.slice();    // creating copy of the notes array
-        newNotes.unshift(newNote);                  //adding new note to the start of the array
-        this.setState({ notes: newNotes, searchedNotes: newNotes });
+        newNotes.unshift(newNote); 
+        this.setState({ notes: newNotes, searchedNotes: newNotes });        
+        this.child.onSearchReset();                 //reset search field
     }
 
-    handleNoteSearch(displayedNotes){
+    handleNoteSearch(displayedNotes, resetSearch){
         var searchedNotes = displayedNotes.slice();
-        this.setState({ searchedNotes: searchedNotes });
+        if (resetSearch === true){
+            this.setState({ searchedNotes: this.state.notes });
+        }
+        else{
+            this.setState({ notes: this.state.notes, searchedNotes: searchedNotes});
+        }
     }
-/*
-    handleSearchReset(displayedNotes){
-        this.setState({ searchedNotes: displayedNotes });
-    }
-*/
+
+    
     render(){
         return(
             <div className="note-app">
-                <Search notes={this.state.notes} onNoteSearch={this.handleNoteSearch} />
+                <Search onRef={ref => (this.child = ref)} notes={this.state.searchedNotes} onNoteSearch={this.handleNoteSearch} value={this.state.value}/>
                 <NoteEditor onNoteAdd={this.handleNoteAdd}/>
                 <NotesGrid notes={this.state.searchedNotes} onNoteDelete={this.handleNoteDelete}/>
             </div>
