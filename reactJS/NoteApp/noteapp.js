@@ -22,7 +22,7 @@ class Search extends React.Component{
         });
 
         this.setState({ displayedNotes: displayedNotes, value: searchQuery });
-        let resetSearch = false;
+        letresetSearch = false;
         this.props.onNoteSearch(displayedNotes, resetSearch);
     }
     onReset(){

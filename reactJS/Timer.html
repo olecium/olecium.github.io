@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Timer</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Timer extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = { seconds: 0, isPaused: false };
+                this.start = this.start.bind(this);
+                this.restart = this.restart.bind(this);
+                this.pause = this.pause.bind(this);
+                this.btnName = 'Start';
+                this.funcName = this.start;
+            }
+            
+            componentDidMount(){
+                //this.start();
+            }
+
+            start(){
+                this.btnName = 'Pause';
+                this.funcName = this.pause;
+                this.timer = setInterval(
+                    () => this.setState({ seconds: this.state.seconds + 1 })
+                    , 1000);
+            }
+            pause(){
+                var pauseTime = this.state.seconds;
+                this.timer = clearInterval(this.timer);
+                this.setState({  isPaused: true });
+                this.btnName = 'Start';
+                this.funcName = this.start;
+            }
+            restart(){
+                this.timer = clearInterval(this.timer);
+                this.setState({ seconds: 0});
+                this.start();
+            }
+
+            componentWillUnmount(){
+                clearInterval(this.timer);
+            }
+
+            render(){
+                return(
+                    <div className="timer">
+                        <button onClick={this.funcName}>{this.btnName}</button>
+                      
+                        <h1>{this.state.seconds}</h1>
+                        <button onClick={this.restart}>Restart</button>
+                    </div> 
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Timer />,
+            document.getElementById('root')
+        );
+
+    </script>
+</body>
+
+</html>
