@@ -1,0 +1,44 @@
+[
+    {
+        "id": "0001",
+        "title": "Gel Ink Pen",
+        "description": "Black gel ink pen with more than 100 pages to write",
+        "price": 4.99,
+        "image": "gel-ink-pen.jpg"
+    },
+    {
+        "id": "0002",
+        "title": "Artists set of pencils grey",
+        "description": "Grey artists pencils set of 12 pencils ideal for artists who start",
+        "price": 15.99 ,
+        "image": "artists-pencils-grey.jpg"
+    },
+    {
+        "id": "0003",
+        "title": "Scissors",
+        "description": "Normal scissors ideal for cutting paper",
+        "price": 2.99 ,
+        "image": "scissors.jpg"
+    },
+    {
+        "id": "0004",
+        "title": "Pencil",
+        "description": "Simple pencil for adding notes",
+        "price": 1.99,
+        "image": "pencil.jpg"
+    },
+    {
+        "id": "0005",
+        "title": "Stabilo Black set of pens 8",
+        "description": "Set of Stabilo pens in black, number of pens in the box - 8.",
+        "price": 6.99,
+        "image": "stabilo-pens.jpg"
+    },
+    {
+        "id": "0006",
+        "title": "Powerbank 2000",
+        "description": "Mirrlo power bank for cases when you haven't got your charger with you, it's 2000w which gives a fast charge. Comes with USB3 cable",
+        "price": 20.99,
+        "image": "powerbank.jpg"
+    }
+]

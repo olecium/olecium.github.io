@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "date": "02-03-2018",
+        "amount": -20.69,
+        "description": "Tesco",
+        "categoryId": 1
+    },
+    {
+        "id": 2,
+        "date": "03-03-2018",
+        "amount": -32.51,
+        "description": "Waitrose",
+        "categoryId": 1
+    },
+    {
+        "id": 3,
+        "date": "03-03-2018",
+        "amount": 100.00,
+        "description": "Sallary",
+        "categoryId": 2
+    },
+    {
+        "id": 4,
+        "date": "04-03-2018",
+        "amount": -50.00,
+        "description": "Cinema",
+        "categoryId": 3
+    },
+    {
+        "id": 5,
+        "date": "05-03-2018",
+        "amount": -180.00,
+        "description": "Clothes",
+        "categoryId": 4
+    },
+    {
+        "id": 6,
+        "date": "05-03-2018",
+        "amount": -120.00,
+        "description": "A gift from sister",
+        "categoryId": 2
+    }
+]

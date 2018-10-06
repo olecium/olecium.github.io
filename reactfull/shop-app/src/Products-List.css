@@ -1,0 +1,32 @@
+.products-list {
+    display: flex;
+    width: 100%;
+}
+
+.products-list__item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-decoration: none;
+    color: #000;
+    margin: 5px;
+}
+
+.products-list__item-image {
+    width: 100px;
+    height: 100px;
+}
+
+.products-list__item-image img {
+    height: 100%;
+}
+
+.products-list__item-title {
+    font-size: 13px;
+}
+
+.products-list__item-price {
+    font-weight: bold;
+    padding: 5px 0 0 0;
+    font-size: 14px;
+}
