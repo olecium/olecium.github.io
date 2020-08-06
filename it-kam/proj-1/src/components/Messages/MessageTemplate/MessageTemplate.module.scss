@@ -1,0 +1,15 @@
+@import "./../../scss/_variables";
+.message{
+  border-radius: 20px;
+  background-color: cadetblue;
+  color: $c-white;
+  padding: 15px;
+  font-size: 12px;
+  margin: 0 0 10px;
+  width: 150px;
+}
+.message_friend{
+  border-radius: 20px;
+  background-color: $accent-color;
+  align-self: flex-end;
+}

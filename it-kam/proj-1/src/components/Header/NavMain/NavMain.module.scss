@@ -1,0 +1,19 @@
+@import "./../../scss/_variables";
+.nav_main{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.nav_main__link{
+  font-size: 14px;
+  color: $c-white;
+  margin: 0 5px;
+}
+.nav_main__link:hover{
+  text-decoration: underline;
+}
+.nav_main__link_active{
+  color: #dddddd;
+}

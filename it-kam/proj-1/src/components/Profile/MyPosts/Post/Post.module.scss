@@ -1,0 +1,22 @@
+
+.post{
+    display: flex;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+.post__img{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    border-radius: 50%;
+    margin-right: 30px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.post__pic{
+    width: 350px;
+    margin-left: -20px;
+}

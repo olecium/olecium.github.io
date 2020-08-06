@@ -1,0 +1,19 @@
+@import "./../../scss/_variables";
+
+.app_sidenav__list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.app_sidenav__link{
+  font-size: 14px;
+  color: $accent-color;
+  display: inline-block;
+  padding: 5px 0;
+}
+.app_sidenav__link:hover{
+  color: #282c34;
+}
+.app_sidenav__link_active{
+  color: $text-dark;
+}

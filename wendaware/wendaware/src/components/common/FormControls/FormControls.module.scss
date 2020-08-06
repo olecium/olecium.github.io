@@ -1,0 +1,19 @@
+.form_control{
+    textarea,
+    input{
+        border: 1px solid #aaaaaa;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    
+    &.error{
+        textarea,
+        input{
+            border: 1px solid firebrick;
+        }
+        p{
+            color: firebrick;
+            font-size: 12px;
+        }
+    }
+}
