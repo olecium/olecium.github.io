@@ -1,0 +1,38 @@
+@import "../../../../scss/variables";
+.menu{
+ display: flex;
+  padding: 0;
+}
+.menu_item {
+  list-style-type: none;
+  margin: 0 15px;
+
+  &:first-child{
+    margin-left: 0;
+  }
+  .menu_item__link {
+    font-size: 14px;
+    color: $accent-color;
+    display: inline-block;
+  }
+  .menu_item__link:hover{
+    color: #282c34;
+  }
+  .menu_item__link_active{
+    color: $text-dark;
+  }
+}
+.menu__welcome{
+  margin-left: 50px;
+  font-size: 14px;
+}
+.menu__logout{
+  border: 0 none;
+  padding: 10px 15px;
+  background-color: $accent-color;
+  font-size: 14px;
+  color: $c-white;
+  display: inline-block;
+  cursor: pointer;
+}
+

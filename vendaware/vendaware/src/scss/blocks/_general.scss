@@ -1,0 +1,148 @@
+@font-face {
+  font-family: "Arial Narrow";
+  //src: url("../fonts/oswaldregular.woff2") format("woff2"),
+  //  url("../fonts/oswaldregular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: $main-font;
+  font-weight: 400;
+}
+a {
+  text-decoration: none;
+}
+
+
+.primary_title{
+  font-family: $main-font;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+}
+.title-secondary{
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 36px;
+  margin: 10px 0;
+  padding: 0;
+}
+.title_third{
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: $text-dark;
+  margin: 0;
+  padding: 0;
+}
+.subtitle{
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: inline-block;
+
+}
+
+.link-btn{
+  font-size: 14px;
+  line-height: 18px;
+  color: $c-white;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color: $accent-color;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 13px 0;
+
+  &:hover,
+  &:link,
+  &:active{
+    background-color: #5eaa2f;
+  }
+  &:active{
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.btn{
+  background-color: #0f698f;
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 20px;
+  border: 0 none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.right-col{
+  text-align: right;
+}
+
+.subtitle-wline{
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 400;
+  margin: 30px 0 35px;
+}
+.table__right-align{
+  text-align: right;
+}
+
+@media (min-width: $tablet-width) {
+  .primary-title{
+    font-size: 60px;
+  }
+  .title-secondary{
+    font-size: 60px;
+    line-height: 60px;
+  }
+  .title-third{
+    font-size: 36px;
+    line-height: 37px;
+  }
+  .button{
+    font-size: 20px;
+    line-height: 20px;
+    padding: 17px 0;
+  }
+  .subtitle-wline{
+    font-size: 36px;
+    line-height: 36px;
+    margin: 70px 0 75px;
+  }
+  .subtitle{
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+@media (min-width: $desktop-width){
+  .wrapper{
+    width: $desktop-width;
+    margin: 0 auto;
+    /*background-image: url("../img/index-background-desktop@1x.jpg");
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 720px 696px;*/
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx){
+      /*background-image: url("../img/index-background-desktop@2x.jpg");*/
+    }
+  }
+}
