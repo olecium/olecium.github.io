@@ -78,7 +78,7 @@ export const getAllFailedSalesData = () => async (dispatch) => {
 
     if (response.status === 200) {
         let allFailedSales = response.data;
-        console.log(allFailedSales);
+        //console.log(allFailedSales);
         dispatch(setAllFailedSalesData(allFailedSales));
     }
 }

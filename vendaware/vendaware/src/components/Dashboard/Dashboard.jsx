@@ -31,10 +31,10 @@ class Dashboard extends React.Component {
         e.preventDefault();
         let showComponent = '';
         switch(graph){
-            case 'bar': showComponent = [...this.state.graph, <BarChart/>]; break;
-            case 'abSales': showComponent = [...this.state.graph, <AbandonedSales/>]; break;
-            case 'vendEfficiency': showComponent = [...this.state.graph, <VendEfficiency {...this.props}/>]; break;
-            case 'failedVends': showComponent = [...this.state.graph, <FailedVends {...this.props}/>]; break;
+            case 'bar': showComponent = [...this.state.graph, <BarChart key={"bar"}/>]; break;
+            case 'abSales': showComponent = [...this.state.graph, <AbandonedSales  key={"abSales"} />]; break;
+            case 'vendEfficiency': showComponent = [...this.state.graph, <VendEfficiency key={"vendEfficiency"} {...this.props}/>]; break;
+            case 'failedVends': showComponent = [...this.state.graph, <FailedVends key={"failedVends"} {...this.props}/>]; break;
             default: showComponent = ''; break;
         }
         this.setState({
