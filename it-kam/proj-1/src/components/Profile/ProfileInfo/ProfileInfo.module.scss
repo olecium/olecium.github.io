@@ -1,0 +1,16 @@
+.profile{
+  display: flex;
+}
+.profile__picture{
+  width: 150px;
+  height: 150px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+.profile__picture_img{
+  margin-left: -80px;
+  height: 250px;
+  width: 450px;
+}

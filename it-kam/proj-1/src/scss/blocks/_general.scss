@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "Oswald";
-  src: url("../fonts/oswaldregular.woff2") format("woff2"),
-    url("../fonts/oswaldregular.woff") format("woff");
+  font-family: "Arial Narrow";
+  //src: url("../fonts/oswaldregular.woff2") format("woff2"),
+  //  url("../fonts/oswaldregular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -20,7 +20,7 @@ body {
   margin: 0;
   padding: 0;
 
-  font-family: @main-font;
+  font-family: $main-font;
   font-weight: 400;
 }
 a {
@@ -28,10 +28,10 @@ a {
 }
 
 
-.primary-title{
-  font-family: @main-font;
-  font-size: 36px;
-  line-height: 60px;
+.primary_title{
+  font-family: $main-font;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 400;
 }
 .title-secondary{
@@ -41,11 +41,11 @@ a {
   margin: 10px 0;
   padding: 0;
 }
-.title-third{
-  font-size: 24px;
-  line-height: 37px;
+.title_third{
+  font-size: 14px;
+  line-height: 20px;
   font-weight: 400;
-  color: @text-dark;
+  color: $text-dark;
   margin: 0;
   padding: 0;
 }
@@ -61,10 +61,10 @@ a {
 .link-btn{
   font-size: 14px;
   line-height: 18px;
-  color: @c-white;
+  color: $c-white;
   font-weight: 400;
   text-transform: uppercase;
-  background-color: @accent-color;
+  background-color: $accent-color;
   text-decoration: none;
   display: block;
   width: 100%;
@@ -81,20 +81,13 @@ a {
   }
 }
 
-.button{
-  font-family: @main-font;
-  font-size: 16px;
-  line-height: 18px;
-  color: @c-white;
-  font-weight: 400;
-  text-transform: uppercase;
+.btn{
+  background-color: #0f698f;
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 20px;
   border: 0 none;
-  background-color: #68b738;
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 13px 0;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -112,7 +105,7 @@ a {
   text-align: right;
 }
 
-@media (min-width: @tablet-width) {
+@media (min-width: $tablet-width) {
   .primary-title{
     font-size: 60px;
   }
@@ -139,17 +132,17 @@ a {
     line-height: 30px;
   }
 }
-@media (min-width: @desktop-width){
+@media (min-width: $desktop-width){
   .wrapper{
-    width: @desktop-width;
+    width: $desktop-width;
     margin: 0 auto;
-    background-image: url("../img/index-background-desktop@1x.jpg");
+    /*background-image: url("../img/index-background-desktop@1x.jpg");
     background-repeat: no-repeat;
     background-position: 100% 0;
-    background-size: 720px 696px;
+    background-size: 720px 696px;*/
 
-    @media (min-resolution: @retina-dpi), (min-resolution: @retina-dppx){
-      background-image: url("../img/index-background-desktop@2x.jpg");
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx){
+      /*background-image: url("../img/index-background-desktop@2x.jpg");*/
     }
   }
 }

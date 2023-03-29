@@ -8,10 +8,8 @@ import store from "./redux/redux-store";
 import { AuthProvider } from 'components/Login/hooks/useAuth';
 
 const init = () => {
-    console.log('init');
 
     ReactDOM.render(
-
         <AuthProvider>
             <Provider store={store}>
                 <App/>

@@ -1,0 +1,105 @@
+@import "./../../../scss/variables";
+@import "./../../../scss/blocks/general";
+
+.form_fields{
+    list-style: none;
+    padding: 0;
+}
+.form_field{
+    margin: 0 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+select {
+    padding: 5px 0;
+    border: 1px solid #cccccc;
+}
+.field_label{
+    padding: 5px 0;
+    font-size: 12px;
+}
+.author_search .field_input{
+    background-color: #cfe1e3;
+}
+.field_input{
+    width: 100%;
+    min-width: 200px;
+    padding: 5px 0;
+    border: 1px solid #cccccc;
+}
+.field_textarea{
+    height: 150px;
+}
+.form_field__checkbox{
+    margin: 10px 10px 0 0;
+    display: flex;
+    .field_label{
+        padding: 0 0 0 10px;
+    }
+}
+.form_buttons{
+    margin: 20px 0;
+}
+.form_errors{
+    border: 1px solid firebrick;
+    padding: 10px 10px 10px 25px;
+
+    p {
+        color: firebrick;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    ul{
+        padding-left: 25px;
+    }
+}
+.form_errors__error{
+    color: firebrick;
+    font-size: 12px;
+    margin: 10px 0;
+}
+.message{
+    border: 1px solid seagreen;
+    padding: 10px;
+    color: seagreen;
+    font-size: 12px;
+    margin: 10px 0;
+}
+.book_image{
+    margin: 10px 0;
+}
+.book_link{
+    font-weight: bold;
+    font-size: 12px;
+    color: #0f6999;
+    margin: 10px 0;
+}
+.search_results{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    list-style-type: none;
+
+    li{
+        padding: 0;
+        list-style-type: none;
+
+        a{
+            padding: 10px 0 10px 10px;
+            border-bottom: 1px solid #cccccc;
+            color: $accent-color;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 100%;
+
+            &:hover{
+                background-color: $accent-color;
+                color: $c-white;
+            }
+        }
+    }
+}

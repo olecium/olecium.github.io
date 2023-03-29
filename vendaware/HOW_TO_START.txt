@@ -1,7 +1,0 @@
-1. start pg admin
-2. start express server:
-	open command line at this path: D:\PROJECTS\GIT-REPOSITORY\olecium.github.io\vendaware
-	write: npm start
-3. start the project:
-	open command line at this path: D:\PROJECTS\GIT-REPOSITORY\olecium.github.io\vendaware\vendaware
-	write: npm start

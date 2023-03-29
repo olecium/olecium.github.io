@@ -1,0 +1,13 @@
+@import "../../../../scss/_variables";
+@import "../../../../scss/blocks/_general";
+.friends_wrapper{
+  margin-top: 20px;
+}
+.friend_list{
+  display: flex;
+}
+.friends_list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

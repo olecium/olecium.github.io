@@ -7,3 +7,6 @@ export interface IBook {
     title: string;
     file: string;
 }
+export interface IBookMap {
+    [id: string]: IBook;
+}

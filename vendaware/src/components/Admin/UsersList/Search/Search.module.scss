@@ -1,0 +1,14 @@
+@import "./../../../../scss/_variables";
+@import "./../../../../scss/blocks/_general";
+@import "./../../../../scss/blocks/_form";
+
+.search{
+    margin: 10px 0 25px;
+    display: flex;
+    flex-direction: row;
+
+    .button_primary{
+        margin: 0;
+        width: 150px;
+    }
+}

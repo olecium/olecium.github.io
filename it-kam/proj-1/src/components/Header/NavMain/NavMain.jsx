@@ -1,13 +1,21 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import s from './NavMain.module.scss';
+import css from './NavMain.module.scss';
 
-const NavMain = () => {
+const NavMain = (props) => {
+
     return(
         <nav>
-            <ul className={s.nav_main}>
-                <li><NavLink className={s.nav_main__link} activeClassName={s.nav_main__link_active} to="/profile">Profile</NavLink></li>
-                <li><NavLink className={s.nav_main__link} to="/settings">Settings</NavLink></li>
+            <ul className={css.nav_main}>
+                {
+                    props.isAuth
+                    ?   <>
+                            <li><button onClick={props.userLogout}>Logout</button></li>
+                            <li><NavLink className={css.nav_main__link} to="/settings">Settings</NavLink></li>
+                            <li><span className={css.nav_main__welcome}>Hello, {props.userId} {props.login}</span><NavLink className={css.nav_main__link} activeClassName={css.nav_main__link_active} to="/profile">Profile</NavLink></li>
+                        </>
+                    :   <li><NavLink className={css.nav_main__link} to="/login">Login</NavLink></li>
+                }
             </ul>
         </nav>
     );

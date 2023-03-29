@@ -1,8 +1,8 @@
 import React from "react";
 
-const News = () => {
+const Music = () => {
     return(
-        <h1>News</h1>
+        <h1>Music</h1>
     );
 }
-export default News;
+export default Music;

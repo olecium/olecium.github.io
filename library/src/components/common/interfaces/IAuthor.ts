@@ -4,3 +4,6 @@ export interface IAuthor {
     name: string;
     surname: string;
 }
+export interface IAuthorsMap {
+    [id: string]: IAuthor;
+}

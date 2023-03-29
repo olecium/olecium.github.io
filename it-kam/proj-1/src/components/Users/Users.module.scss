@@ -1,0 +1,66 @@
+@import "./../../scss/_variables";
+@import "./../../scss/_mixins";
+@import "./../../scss/blocks/_general";
+.users{
+}
+.users_list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+.user{
+    margin: 0 0 10px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #eee;
+    border-radius: 20px;
+    display: flex;
+}
+.user_image__wrapper{
+    width: 100px;
+    text-align: center;
+}
+.user_follow__button{    
+  @include btn_primary;
+}
+.user_follow__button_active{
+    background-color: cadetblue;
+}
+.user_image{
+    width: 50px;
+    height: 50px;
+}
+.user_info{
+    margin: 0 0 0 30px;
+}
+.user_name{
+    margin: 10px 0 30px;
+    font-size: 16px;
+}
+.user_location{
+    font-size: 12px;
+}
+.pagination{
+    margin: 20px 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+.page{
+    margin: 0 5px 0 0;
+    span{
+        color: #000000;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        background-color: #eee;
+        cursor: pointer;
+    }
+}
+.page__selected{
+    span{
+        font-weight: bold;
+        background-color: $accent-color;
+        color: $c-white;
+    }
+}

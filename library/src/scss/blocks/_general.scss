@@ -30,23 +30,24 @@ a {
 
 .primary_title{
   font-family: $main-font;
-  font-size: 18px;
-  line-height: 18px;
-  font-weight: 400;
-}
-.title-secondary{
   font-size: 36px;
-  font-weight: 400;
   line-height: 36px;
-  margin: 10px 0;
+  font-weight: 400;
+  margin: 40px 0 20px;
+}
+.secondary_title{
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 400;
+  margin: 40px 0 20px;
   padding: 0;
 }
-.title_third{
-  font-size: 14px;
+.third_title{
+  font-size: 20px;
   line-height: 20px;
   font-weight: 400;
   color: $text-dark;
-  margin: 0;
+  margin: 40px 0 20px;
   padding: 0;
 }
 .subtitle{

@@ -1,0 +1,186 @@
+@font-face {
+  font-family: 'Atlanta';
+  src: url('../../fonts/Atlanta/Atlanta-Book.woff2') format('woff2'),
+      url('../../fonts/Atlanta/Atlanta-Book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Atlanta Bold';
+  src: url('../../fonts/Atlanta/Atlanta-Demi.woff2') format('woff2'),
+      url('../../fonts/Atlanta/Atlanta-Demi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: $main-font;
+  font-weight: 400;
+  background-color: #f5f6fb;
+}
+a {
+  text-decoration: none;
+}
+
+#header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.primary_title{
+  font-family: $special-font;
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 400;
+  margin: 40px 0 20px;
+  color: $accent-color;
+}
+.secondary_title{
+  font-family: $special-font;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 400;
+  margin: 40px 0 20px;
+  padding: 0;
+}
+.third_title{
+  font-family: $special-font;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+  color: $text-dark;
+  margin: 40px 0 20px;
+  padding: 0;
+}
+.subtitle{
+  font-family: $special-font;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: inline-block;
+
+}
+
+.link-btn{
+  font-size: 14px;
+  line-height: 18px;
+  color: $c-white;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color: $accent-color;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 13px 0;
+
+  &:hover,
+  &:link,
+  &:active{
+    background-color: #5eaa2f;
+  }
+  &:active{
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.btn{
+  background-color: #e2dfdf;
+  color: #111;
+  font-size: 12px;
+  padding: 11px 20px;
+  border: 1px solid #b6b6b6;
+  cursor: pointer;
+}
+
+.btn.btn_active,
+.button_primary{
+  padding: 12px 20px;
+  background-color: $accent-color;
+  color: $c-white;
+  border: 0 none;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.button_primary.danger{  
+  background-color: rgb(121, 19, 19);
+}
+.button_primary.danger{  
+  background-color: rgb(121, 19, 19);
+}
+
+.right-col{
+  text-align: right;
+}
+
+.subtitle-wline{
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 400;
+  margin: 30px 0 35px;
+}
+.table__right-align{
+  text-align: right;
+}
+
+@media (min-width: $tablet-width) {
+  .primary-title{
+    font-size: 60px;
+  }
+  .title-secondary{
+    font-size: 60px;
+    line-height: 60px;
+  }
+  .title-third{
+    font-size: 36px;
+    line-height: 37px;
+  }
+  .button{
+    font-size: 20px;
+    line-height: 20px;
+    padding: 17px 0;
+  }
+  .subtitle-wline{
+    font-size: 36px;
+    line-height: 36px;
+    margin: 70px 0 75px;
+  }
+  .subtitle{
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+@media (min-width: $desktop-width){
+  .wrapper{
+    width: $desktop-width;
+    margin: 0 auto;
+    /*background-image: url("../img/index-background-desktop@1x.jpg");
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 720px 696px;*/
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx){
+      /*background-image: url("../img/index-background-desktop@2x.jpg");*/
+    }
+  }
+}

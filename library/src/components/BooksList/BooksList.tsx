@@ -1,105 +1,180 @@
 import React from "react";
-import {IBook} from "../common/interfaces/IBook";
-import {IAuthor} from "../common/interfaces/IAuthor";
 import {Book, IBookProps} from "../Book/Book";
+import css from "./BookList.module.scss";
+import {useBookUpdate} from "../common/hooks/useBookUpdate";
+import {useAuthorUpdate} from "../common/hooks/useAuthorUpdates";
 import {firestore} from "../../Storage";
+import firebase from "firebase";
+import {ILanguage, ILanguageMap} from "../common/interfaces/ILanguage";
 import {useAuth} from "../Login/hooks/useAuth";
+import { Droppable} from "react-beautiful-dnd";
+import { DragDropContext } from "react-beautiful-dnd";
+import {useFavouriteBookUpdates} from "../common/hooks/useFavouriteBookUpdates";
 
+export interface IFavouriteBook {
+    [index: number]: string;
+}
 
 const BookList: React.FC = (): React.ReactElement => {
 
     const {user} = useAuth();
+    const {books} = useBookUpdate();
+    const {authors} = useAuthorUpdate();
+    const {favouriteBooks} = useFavouriteBookUpdates();
+    const columnId = 'column-1';
 
-    const [books, setBooks] = React.useState<IBook[]>([]);
-    const [authors, setAuthors] = React.useState<IAuthor[]>([]);
     const [bookProps, setBookProps] = React.useState<IBookProps[]>([]);
+    const [languages, setLanguages]= React.useState<ILanguageMap>({});
+
+    const addToFavourite = async (bookId: string, fav: boolean) => {
+        try {
+            if (user === undefined || user === null) return;
+            const booksRef = await firestore.collection("user_favourite_books").doc(user.uid);
+            if (fav) {
+                const removeBook = booksRef.update({
+                    books: await firebase.firestore.FieldValue.arrayRemove(bookId)
+                });
+                if (removeBook) {
+                    console.log('unselected')
+                } else {
+                    console.log('error')
+                }
+            } else {
+                const addBook = booksRef.update({
+                    books: await firebase.firestore.FieldValue.arrayUnion(bookId)
+                });
+            }
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    const deleteBook = async (bookId: string) => {
+
+        try {
+            if(user === undefined || user === null) return;
+            await firestore.collection("books").doc(bookId).delete();
+            const bookCategoriesSnapshot = await firestore.collection("category_books").get();
+            const docs = bookCategoriesSnapshot.docs;
+            for(const doc of docs) {
+                const d = doc.data();
+                if (d.book_id === bookId) {
+                    await firestore.collection("category_books").doc(doc.id).delete();
+
+                    const storageRef = await firebase.storage().ref();
+                    const fileRef =  storageRef.child(`books/pdf/${bookId}`);
+                    const imageRef =  storageRef.child(`books/covers/${bookId}-cover`);
+                    imageRef.delete();
+                    fileRef.delete();
+                }
+            }
+        } catch(err) {
+            console.log(err);
+        }
+
+    }
+
+    const onDragEnd = (result: any) => {
+        const {destination, source, draggableId} = result;
+        if(!destination) {
+            return;
+        }
+        if(
+            destination.droppableId === source.droppableId &&
+            destination.index === source.index
+        ) {
+            return;
+        }
+
+        const newBookOrder = Array.from(bookProps);
+        const draggedBook = newBookOrder.filter(x => x.id === draggableId);
+
+        newBookOrder.splice(source.index, 1);
+        newBookOrder.splice(destination.index, 0, draggedBook[0]);
+
+        setBookProps(newBookOrder);
+    }
 
     React.useEffect(() => {
 
-        const getData = async (): Promise<void> => {
+        const getLanguages = async (): Promise<void> => {
             try {
 
                 if(user === undefined || user === null) return;
-                const bookSnapshot = await firestore.collection('books').get();
-                const authorSnapshot = await firestore.collection('authors').get();
-                const bks: IBook[] = [];
+                const languages: ILanguage[] = [];
+                const langSnapshot = await firestore.collection('languages').get();
+                langSnapshot.docs.forEach((doc) => {
+                    const l = doc.data();
 
-                bookSnapshot.docs.forEach((doc) => {
-                    const d = doc.data();
-
-                    const b: IBook = {
-                        id: d.id,
-                        image: d.image,
-                        author_id: d.author_id,
-                        description: d.description,
-                        language: d.language,
-                        title: d.title,
-                        file: d.file
+                    const lang: ILanguage = {
+                        id: l.id,
+                        title: l.title
                     }
-                    bks.push(b);
+                    languages.push(lang);
                 });
 
-                const aths: IAuthor[] = [];
-
-                authorSnapshot.docs.forEach((doc) => {
-                    const d = doc.data();
-
-                    const a: IAuthor = {
-                        id: doc.id,
-                        name: d.name,
-                        surname: d.surname,
-                        description: d.description,
-                    }
-                    aths.push(a);
-                });
-
-                setBooks(bks);
-                setAuthors(aths);
-            }
-            catch(err) {
+                const languagesMap: ILanguageMap = {};
+                for (const l of languages) {
+                    languagesMap[l.id] = l.title;
+                }
+                setLanguages(languagesMap);
+            } catch (err) {
                 console.log(err);
             }
-        };
+        }
+        getLanguages();
 
-        getData();
+    },[user]);
 
-    }, [user]);
+
 
     React.useEffect(() => {
-        if(books.length > 0 && authors.length > 0){
+
+        if(Object.keys(books).length > 0 && Object.keys(authors).length > 0  && Object.keys(languages).length > 0 ){
 
             const result: IBookProps[] = [];
 
-            for(let i = 0; i< books.length; i++) {
-                const b = books[i];
-                const a = authors.find((a) => a.id === b.author_id);
+            for(const k in books) {
+                const b = books[k];
+                const a = authors[b.author_id];
+                const langTitle = languages[b.language];
+
+                const fav = favouriteBooks.indexOf(b.id) !== -1;
+
                 const bp: IBookProps = {
                     ...b,
-                    authorName: a ? `${a.name} ${a.surname}` : `Unknown`
+                    authorName: a ? `${a.name} ${a.surname}` : `Unknown`,
+                    langTitle: langTitle,
+                    fav: fav
                 };
                 result.push(bp);
+
             }
             setBookProps(result);
         }
-    }, [books, authors]);
+    }, [books, authors, favouriteBooks, languages ]);
+
 
     return(
-        <div>
-            <p>hello</p>
-            <ul>
-            {
-                bookProps.map((b) => {
-                     return(
-                         <li key={b.id}>
-                            <div>
-                                <Book {...b} />
-                            </div>
-                         </li>
-                    );
-                })
-            }
-            </ul>
-        </div>
+        <DragDropContext onDragEnd={onDragEnd}>
+            <div>
+                <h1>Список книг</h1>
+                <Droppable direction="horizontal" droppableId={columnId}>
+                    {provided => (
+                        <ul className={css.books__list} ref={provided.innerRef} {...provided.droppableProps}>
+                        {
+                            bookProps.map((b, index) => {
+                                return (
+                                    <Book {...b} key={b.id} index={index} deleteBook={deleteBook} addToFavourite={addToFavourite}/>
+                                )
+                            })
+                        }
+                        {provided.placeholder}
+                        </ul>
+                    )}
+                </Droppable>
+            </div>
+        </DragDropContext>
     );
 };
 

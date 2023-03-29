@@ -1,0 +1,13 @@
+@import "./../../../scss/_variables";
+.add_post{
+  margin: 40px 0;
+
+  button{
+    background-color: $accent-color;
+    color: #fff;
+    font-size: 13px;
+    padding: 10px 20px;
+    border: 0 none;
+    border-radius: 10px;
+  }
+}

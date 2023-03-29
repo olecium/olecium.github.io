@@ -1,0 +1,14 @@
+set up user role (Can a user have more than one role? switch between roles?)
+
+move favourite books in book planner and save to the DB - draggable ID issues
+
+show authors
+add author form
+remove author
+edit author
+
+make an option to change default bookLanguage
+
+when I edit a book and then click on Add book it shows me the same page
+
+search book

@@ -1,8 +1,8 @@
 import React from "react";
 
-const News = () => {
+const Settings = () => {
     return(
-        <h1>News</h1>
+        <h1>Settings</h1>
     );
 }
-export default News;
+export default Settings;

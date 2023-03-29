@@ -1,12 +1,11 @@
 import React from "react";
-import s from './Post.module.scss';
-import AddPost from "../AddPost/AddPost";
+import css from './Post.module.scss';
 
 const Post = (props) => {
     return(
-        <div className={s.post}>
-            <span className={s.post__img}>
-                <img className={s.post__pic} src={props.photo} alt="user picture"/>
+        <div className={css.post}>
+            <span className={css.post__img}>
+                <img className={css.post__pic} src={props.photo} alt="user pic ture"/>
             </span>
             <span>
                 <p>{props.text}</p>

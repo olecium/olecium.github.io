@@ -1,8 +1,19 @@
 cd olecium.github.io
 git status
-git add -A  //add all
+git add -A | add . //add all
 git status
 git commit -m "your commit message here"  //commit locally
 git push  //commit all from local to online
 
 git pull // get everything from online repository
+
+
+git branch newBranch - make a newBranch
+git checkout newBranch - switch to the newBranch 
+(use 'git switch newBranch' for newer git versions starting from v2.23)
+git commit - commit to the newBranch
+
+git checkout -b newBranch - create newBranch and switch to it.
+
+git merge newBranch - merge newBranch to the main and swutch branch to main.
+git checkout newBranch; git merge main - Merge main into newBranch

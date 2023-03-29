@@ -8,7 +8,8 @@ const initialState: IHeaderState = {
     usermenu: [
         {id: 1, title: "Избранное", link: "/favourite"},
         {id: 2, title: "Профиль", link: "/profile"},
-        {id: 3, title: "Добавить книгу", link: "/add-book"}
+        {id: 3, title: "Добавить книгу", link: "/add-book"},        
+        {id: 4, title: "Добавить автора", link: "/add-edit-author"}
     ],
     mainmenu: [
         {id: 1, title: "Главная", link: "/"},

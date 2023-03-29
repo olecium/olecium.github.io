@@ -24,21 +24,21 @@
   font-size: 16px;
   line-height: 18px;
   text-transform: uppercase;
-  color: @text-dark2;
+  color: $text-dark;
   margin-right: 20px;
 }
 .form-field__input{
-  font-family: @main-font;
+  font-family: $main-font;
   font-size: 16px;
   line-height: 18px;
   text-transform: uppercase;
   border: 1px solid #e6e6e6;
   padding: 10px;
-  color: @text-dark2;
+  color: $text-dark;
   flex-grow: 1;
 
   &::placeholder{
-    color: @text-light;
+    color: $text-light;
   }
 }
 .form-field__icon{
@@ -74,16 +74,16 @@
   padding: 7px 0;
 }
 .form-field__textarea{
-  font-family: @main-font;
+  font-family: $main-font;
   font-size: 16px;
   line-height: 18px;
   border: 1px solid #e6e6e6;
   padding: 20px;
   width: 100%;
-  color: @text-dark2;
+  color: $text-dark;
 
   &::placeholder{
-    color: @text-light;
+    color: $text-light;
   }
 }
 .form-checkbox{
@@ -127,7 +127,7 @@
 }
 .form-radio__input:checked ~ .form-radio__label::after{
   content: "";
-  background-color: @accent-color;
+  background-color: $accent-color;
   width: 12px;
   height: 12px;
   border-radius: 6px;
@@ -145,7 +145,7 @@
   left: 5px;
   width: 21px;
   height: 16px;
-  fill: @accent-color;
+  fill: $accent-color;
   background-image: url('../img/icon-tick.svg');
   background-position: 0 0;
   background-repeat: no-repeat;

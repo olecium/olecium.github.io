@@ -1,4 +1,4 @@
-@import "./../../scss/_variables";
+@import "../../../scss/variables";
 .nav_main{
   list-style: none;
   padding: 0;
@@ -16,4 +16,9 @@
 }
 .nav_main__link_active{
   color: #dddddd;
+}
+.nav_main__welcome{
+  font-size: 12px;
+  margin-right: 30px;
+  color: $c-white;
 }

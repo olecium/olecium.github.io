@@ -15,7 +15,9 @@ const UserMenu:React.FC = ():React.ReactElement => {
             const umenu: IMenuItem[] = [
                 {id: 1, title: "Избранное", link: "/favourite"},
                 {id: 2, title: "Профиль", link: "/profile"},
-                {id: 3, title: "Добавить книгу", link: "/add-book"}
+                {id: 3, title: "Добавить книгу", link: "/add-edit-book"},
+                {id: 4, title: "Добавить автора", link: "/add-edit-author"},
+                {id: 5, title: "Планирование недели", link: "/week-planner"}
             ];
 
             setUserMenu(umenu);

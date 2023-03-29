@@ -1,5 +1,14 @@
-.default-font(){
-  font-family: @second-font;
+@mixin default-font{
+  font-family: $main-font;
   font-size: 14px;
   line-height: 18px;
+}
+@mixin btn_primary{
+    background-color: #0f698f;
+    color: #fff;
+    font-size: 13px;
+    padding: 10px 20px;
+    border: 0 none;
+    border-radius: 10px;
+    cursor: pointer;
 }

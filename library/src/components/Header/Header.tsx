@@ -5,8 +5,8 @@ import UserMenu from "./UserMenu/UserMenu";
 import Search from "../Search/Search";
 import {IMenuItem} from "../common/interfaces/IMenuItem";
 import {useAuth} from "../Login/hooks/useAuth";
-import {LoginForm} from "../Login/LoginForm";
 import LogoutButton from "../Login/LogoutButton";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 const Header: React.FC = (): React.ReactElement => {
 
@@ -29,8 +29,8 @@ const Header: React.FC = (): React.ReactElement => {
     const auth = useAuth();
 
     return (
-        <header>
-
+        <header className={css.header}>
+            <LanguageSwitcher />
             {  auth.user &&
                 <div>
                     <Menu mainmenu={mainmenu}/>

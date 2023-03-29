@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Atlanta';
+    src: url('fonts/Atlanta-BookOblique.woff2') format('woff2'),
+        url('fonts/Atlanta-BookOblique.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Atlanta';
+    src: url('fonts/Atlanta-DemiOblique.woff2') format('woff2'),
+        url('fonts/Atlanta-DemiOblique.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Atlanta';
+    src: url('fonts/Atlanta-Book.woff2') format('woff2'),
+        url('fonts/Atlanta-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Atlanta';
+    src: url('fonts/Atlanta-Demi.woff2') format('woff2'),
+        url('fonts/Atlanta-Demi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

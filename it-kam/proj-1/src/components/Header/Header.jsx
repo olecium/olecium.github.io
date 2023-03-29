@@ -1,10 +1,11 @@
 import React from "react";
-import NavMain from "./NavMain/NavMain";
+import css from "./Header.module.scss";
+import NavMainContainer from "./NavMain/NavMainContainer";
 
 function Header () {
     return (
-        <header className="app-header">
-            <NavMain />
+        <header className={css.app_header}>
+            <NavMainContainer />
         </header>
     );
 }

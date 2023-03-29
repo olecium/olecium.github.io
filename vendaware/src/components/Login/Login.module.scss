@@ -1,0 +1,29 @@
+@import "./../../scss/_variables";
+@import "./../../scss/blocks/_general";
+@import "./../../scss/blocks/_form";
+
+.login_form{
+    margin: 0 auto;
+    width: 295px;
+
+    header{
+        display: flex;
+        justify-content: center;
+    }
+
+    .button_primary{
+        margin: 0;
+    }
+}
+.logout{
+    border: 0 none;
+    padding: 10px 15px;
+    background-color: $accent-color;
+    color: #fff;
+    display: inline-block;
+    border-right: 1px solid #fff;
+    cursor: pointer;
+    
+    font-family: $special-font;
+    font-size: 15px;
+}
