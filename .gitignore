@@ -57,5 +57,4 @@ typings/
 # dotenv environment variables file
 .env
 0-START
-
-express-books-api/src/books
+books/
